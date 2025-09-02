@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H₂H - Happier to Happiest</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f9fbff; color: #333; }
+    nav { background: #3867d6; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+    nav h1 { color: white; margin: 0; font-size: 1.5rem; }
+    nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+    nav ul li { margin-left: 1.5rem; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: color 0.3s; cursor:pointer; }
+    nav ul li a:hover { color: #d1d8ff; }
+    .hero { background: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb') no-repeat center center/cover; color: white; text-align: center; padding: 6rem 2rem; }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .hero a { background: #ff7675; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
+    .hero a:hover { background: #e55039; }
+    /* Modal Form */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 2000; }
+    .modal-content { background: white; padding: 2rem; border-radius: 15px; width: 90%; max-width: 700px; max-height: 90%; overflow-y: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.2); }
+    .modal-content h1 { text-align: center; color: #3867d6; margin-bottom: 1.5rem; }
+    .modal-content h2 { color: #3867d6; margin-top: 2rem; font-size: 1.3rem; }
+    label { display: block; margin: 1rem 0 0.3rem; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
+    textarea { resize: vertical; }
+    button { display: block; width: 100%; padding: 1rem; background: #3867d6; color: white; border: none; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: background 0.3s; }
+    button:hover { background: #2d5ab5; }
+    .close { float: right; font-size: 1.5rem; cursor: pointer; color: #999; }
+    .close:hover { color: #333; }
+    section { padding: 3rem 2rem; text-align: center; }
+    .section-light { background: #ffffff; }
+    .section-dark { background: #f1f5ff; }
+    h2 { font-size: 2rem; margin-bottom: 1rem; color: #3867d6; }
+    p { max-width: 700px; margin: 0 auto 1rem; }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .service-box { background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .service-box:hover { transform: translateY(-5px); }
+    .testimonials { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
+    .testimonial { background: white; padding: 1.5rem; border-radius: 12px; width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); font-style: italic; }
+    footer { background: #3867d6; color: white; text-align: center; padding: 1.5rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>H₂H</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a id="openFormBtn">Wellbeing Check</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h2>Welcome to H₂H - Happier to Happiest</h2>
+    <p style="font-size:1.4rem; font-style:italic; margin-bottom:1.5rem;">Your journey from stress to strength.</p>
+    <p>Your wellbeing matters. Find support, balance, and happiness in just minutes.</p>
+    <a id="openFormBtnHero">Take Your Wellbeing Check</a>
+  </div>
+
+  <section id="about" class="section-light">
+    <h2>Why Choose H₂H?</h2>
+    <p>At H₂H, we believe everyone deserves to be happy. Our certified therapists and wellbeing experts are here to guide you through stress, anxiety, or simply everyday struggles. We combine professional support with easy access — so help is always just 5 minutes away.</p>
+  </section>
+
+  <section id="services" class="section-dark">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service-box"><h3>1-on-1 Therapy</h3><p>Talk privately with certified professionals whenever you need support.</p></div>
+      <div class="service-box"><h3>Group Sessions</h3><p>Join the group and share experiences with others like you.</p></div>
+      <div class="service-box"><h3>Wellbeing Resources</h3><p>Access meditation guides, stress relief tips, and more tools to grow in the group.</p></div>
+      <div class="service-box"><h3>24/7 Chat Support</h3><p>Our chat assistants are always available when you just need to talk.</p></div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="section-light">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials">
+      <div class="testimonial">“H₂H changed my life. I feel happier and more confident than ever.” – Sarah M.</div>
+      <div class="testimonial">“I love how easy it is to connect with a therapist. Truly a lifesaver!” – John D.</div>
+      <div class="testimonial">“The resources are amazing. I use the meditation guide every night.” – Aisha K.</div>
+    </div>
+  </section>
+
+  <section id="contact" class="section-dark">
+    <h2>Contact Us</h2>
+    <p>Email: thomastijyperumkannaril@gmail.com </p>
+    <p>Phone: +971-52-537-3569</p>
+    <p>Location: Sahara Tower 4,20th floor, 2003,Sharjah,UAE/p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 H₂H - Happier to Happiest. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Wellbeing Form Modal -->
+  <div class="modal" id="wellbeingModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h1>Wellbeing Check</h1>
+      <form action="https://formspree.io/f/manbgdeo" method="POST">
+        <!-- ✅ Send submissions to your Gmail -->
+        <input type="hidden" name="_replyto" value="thomastijyperumkannaril@gmail.com">
+        <!-- ✅ Optional redirect -->
+        <input type="hidden" name="_next" value="thankyou.html">
+
+        <!-- Mental Wellbeing -->
+        <h2>🧠 Mental Wellbeing</h2>
+        <label>How often do you feel anxious or worried?</label>
+        <select name="anxious_frequency"><option>Rarely</option><option>Sometimes</option><option>Often</option><option>Almost Always</option></select>
+        <label>Do you find it hard to concentrate on tasks?</label>
+        <select name="concentration"><option>Yes</option><option>No</option></select>
+        <label>How would you rate your stress level today?</label>
+        <select name="stress_level"><option>1 - Very Low</option><option>2 - Low</option><option>3 - Medium</option><option>4 - High</option><option>5 - Very High</option></select>
+
+        <!-- Emotional Wellbeing -->
+        <h2>❤️ Emotional Wellbeing</h2>
+        <label>How are you feeling right now?</label>
+        <select name="current_emotion"><option>😀 Happy</option><option>🙂 Okay</option><option>😔 Sad</option><option>😣 Stressed</option></select>
+        <label>Do you feel supported by people around you?</label>
+        <select name="support"><option>Yes</option><option>No</option><option>Sometimes</option></select>
+        <label>What emotions do you experience most often?</label>
+        <textarea name="frequent_emotions" rows="3" placeholder="Write your answer..."></textarea>
+
+        <!-- Final Section -->
+        <h2>📩 Final Section</h2>
+        <label>Would you like us to connect you with a therapist?</label>
+        <select name="connect_therapist"><option>Yes</option><option>No</option><option>Maybe Later</option></select>
+        <label>Your Email (for therapist contact):</label>
+        <input type="email" name="user_email" placeholder="Enter your email" required>
+
+        <button type="submit">Submit Wellbeing Check</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("wellbeingModal");
+    const openBtns = document.querySelectorAll("#openFormBtn, #openFormBtnHero");
+    const closeBtn = document.getElementById("closeModal");
+
+    openBtns.forEach(btn => {
+      btn.addEventListener("click", e => { e.preventDefault(); modal.style.display = "flex"; });
+    });
+
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target == modal) modal.style.display = "none"; }
+  </script>
+</body>
+</html>
